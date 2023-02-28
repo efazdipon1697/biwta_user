@@ -5,6 +5,7 @@ import logo from "../../assets/logo1.png";
 import { useState } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+import biwta_guideline from "../../assets/biwta_guideline.pdf";
 
 
 const usesStyle = makeStyles((theme)=>({
@@ -181,12 +182,19 @@ const InformationScreen = () => {
                 <img src={logo} />
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
+                <div className={classes.spacer} />
                 <Typography className={classes.welcomeText}>WELCOME to BIWTA Hydrographic Resources</Typography>
+                <div className={classes.spacer} />
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
                 <Typography style={{color: "black", fontSize: "16", fontWeight: "400", marginBottom: "10px", textAlign: "center"}}>
                     Please read BIWTA guidelines  from here
                 </Typography>
+                <a href={biwta_guideline} target="_blank"  style={{textDecoration: "none", color: "#2D3653", fontWeight: "700"}}>
+                    BIWTA Guidelines.pdf
+                </a>
+                <div className={classes.spacer} />
+                <div className={classes.spacer} />
                 <div className={classes.spacer} />
                 <Typography style={{color: "black", fontSize: "24", fontWeight: "400", marginBottom: "10px", textAlign: "center"}}>
                     Registration fee 200 TK
@@ -283,6 +291,10 @@ const SignUpFormHolder = () => {
         }
         if (newUser.pass != confirmPassword) {
             alert("Both passwords must match");
+            return;
+        }
+        if (newUser.photo === "") {
+            alert("Please add a soft copy of your ID card to continue");
             return;
         }
 
@@ -489,6 +501,9 @@ const LoginFormHolder = () => {
         
             if(res.data === "success"){
                 alert("Login successfully.");
+                window.localStorage.setItem("currentEmail", newUser.email);
+                window.localStorage.setItem("isLoggedIn", true);
+                window.location.href= "/dashboard";
             } else if (res.data === "unverified"){
                 alert("This email is not verified yet. Please go to the link sent to your email for verification. If you do not find the any mail related verification in inbox, please check SPAM folder as well.");
             } else {
