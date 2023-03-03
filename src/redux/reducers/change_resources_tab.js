@@ -1,4 +1,4 @@
-const initialTab = "hydrographic";
+const initialTab = "Hydrographic Survey Chart";
 
 const changeResourceTab = (state = initialTab, action) => {
     switch (action.type) {
