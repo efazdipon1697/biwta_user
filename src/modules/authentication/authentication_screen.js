@@ -10,8 +10,9 @@ import biwta_guideline from "../../assets/biwta_guideline.pdf";
 
 const usesStyle = makeStyles((theme)=>({
     authenticationFormHolder: {
-        backgroundColor: 'rgba(255, 255, 255, 0.6)',
-        border: "2px solid black",
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        // border: "2px solid black",
+        boxShadow: "2px 2px 2px 2px black",
         borderRadius: "25px",
         height: "90%",
         width: "90%",
@@ -34,12 +35,6 @@ const usesStyle = makeStyles((theme)=>({
         border: "1px solid #cdcdcd",
         borderRadius: "5px",
         backgroundColor: "transparent"
-    },
-    welcomeText: {
-        color: 'black',
-        fontSize: "24",
-        fontWeight: "400",
-        textAlign: "center",
     },
     spacer: {
         height: "10px",
@@ -117,7 +112,7 @@ const AuthenticationScreen = () => {
 
     const classes = usesStyle();
 
-    const [signUpOpen, setSignUpOpen] = useState(true);
+    const [signUpOpen, setSignUpOpen] = useState(false);
 
 
     return (
@@ -142,7 +137,7 @@ const AuthenticationScreen = () => {
                                 <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
 
                                     <Typography>
-                                        { signUpOpen ? "Already have an account?" : "Do not have an account?" }
+                                        { signUpOpen ? "Already have an account?" : "Don't have an account?" }
                                     </Typography>
 
                                     <div className={classes.spacer} />
@@ -179,11 +174,11 @@ const InformationScreen = () => {
     return (
         <>
             <div className={classes.infoHolder}>
-                <img src={logo} />
+                <img src={logo} style={{width: "100px",}}/>
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
-                <Typography className={classes.welcomeText}>WELCOME to BIWTA Hydrographic Resources</Typography>
+                <strong style={{fontSize: "20px", textAlign: "center"}}>WELCOME to BIWTA Hydrographic Resources</strong>
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
                 <div className={classes.spacer} />
@@ -259,7 +254,7 @@ const SignUpFormHolder = () => {
         { value: 'Student ID', label: 'Student ID' },
         { value: 'Institution ID', label: 'Institution ID' }
     ];
-      
+
 
     function registerUser(event) {
 
@@ -447,6 +442,7 @@ const SignUpFormHolder = () => {
 
                     <input
                         type="submit"
+                        value="Register"
                         className={classes.submitButton}
                     />
 
@@ -553,7 +549,7 @@ const LoginFormHolder = () => {
                     <div className={classes.spacer} />
 
                     <Button variant="contained" style={{ backgroundColor: "#2D3653", color: "white" }} onClick={loginUser}>
-                        SUBMIT
+                        Login
                     </Button>
                 
                 </form>
