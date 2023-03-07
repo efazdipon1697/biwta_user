@@ -1,10 +1,9 @@
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
-// import Select from 'react-select';
 import Select from '@mui/material/Select';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button, FormControl, Grid, InputLabel, MenuItem, Typography } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, MenuItem, TextField, Typography } from '@mui/material';
 
 const usesStyle = makeStyles((theme)=>({
     holder: {
@@ -110,6 +109,7 @@ const TidalDataScreen = () => {
     const [station, setStation] = useState('');
     const [fromYear, setFromYear] = useState('');
     const [toYear, setToYear] = useState('');
+    const [purpose, setPurpose] = useState('');
 
 
     const addToRequest = () => {
@@ -272,6 +272,20 @@ const TidalDataScreen = () => {
                     </Grid>
 
 
+                </div>
+
+                <div className={classes.surveyFormHolder}>
+                    <Typography>Purpose of Chart</Typography>
+                    <div className={classes.spacer} />
+                    <TextField
+                        id="outlined-textarea"
+                        placeholder="Describe your purpose"
+                        multiline
+                        name="purpose"
+                        value={purpose}
+                        className={classes.inputField}
+                        onChange={(e)=>setPurpose(e.target.value)}
+                    />
                 </div>
 
             </div>
