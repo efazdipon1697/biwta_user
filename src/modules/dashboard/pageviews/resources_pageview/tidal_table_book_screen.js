@@ -98,8 +98,8 @@ const TidalTableBookScreen = () => {
 
     const classes = usesStyle();
 
-    const [fromYear, setFromYear] = useState('');
-    const [toYear, setToYear] = useState('');
+    const [year, setYear] = useState('');
+    const [qty, setQty] = useState('');
 
     const addToRequest = () => {
 
@@ -112,38 +112,47 @@ const TidalTableBookScreen = () => {
 
                 <div className={classes.surveyFormHolder}>
                     
-                    <Typography className={classes.labelText}>Period : </Typography>
+                    <Typography className={classes.labelText}>Period of Table: </Typography>
                     <div className={classes.spacer} />
 
                     <Grid container spacing={2}>
 
-                        <Grid item xs={6} sm={6}>
-                            <Typography className={classes.labelText}>From</Typography>
-                        </Grid>
-                        <Grid item xs={6} sm={6}>
-                            <Typography className={classes.labelText}>To</Typography>
+                        <Grid item xs={3} sm={3}  style={{display: "flex", alignItems: "center"}}>
+                            <Typography className={classes.labelText}>Year</Typography>
                         </Grid>
 
-                        <Grid item xs={6} sm={6}>
+                        <Grid item xs={8} sm={8}>
                             <DatePicker 
                                 placeholderText="Year"
                                 className={classes.inputField}
-                                selected={fromYear}
-                                onChange={(date)=> setFromYear(date)}
-                            />
-                        </Grid>
-
-
-                        <Grid item xs={6} sm={6}>
-                            <DatePicker 
-                                placeholderText="Year"
-                                className={classes.inputField}
-                                selected={toYear}
-                                onChange={(date)=> setToYear(date)}
+                                selected={year}
+                                onChange={(date)=> setYear(date)}
                             />
                         </Grid>
 
                     </Grid>
+                    <div className={classes.spacer} />
+
+                    <Grid container spacing={2} >
+
+                        <Grid item xs={3} sm={3} style={{display: "flex", alignItems: "center"}}>
+                            <Typography className={classes.labelText}>Quantity</Typography>
+                        </Grid>
+
+                        <Grid item xs={8} sm={8}>
+                            <input
+                                type="text"
+                                label="Quantity"
+                                name="qty"
+                                value={qty}
+                                placeholder="Quantity"
+                                className={classes.inputField}
+                                onChange={(e)=>setQty(e.target.value)}
+                            />
+                        </Grid>
+
+                    </Grid>
+                    <div className={classes.spacer} />
 
 
                 </div>
