@@ -256,7 +256,7 @@ const HydrographicSurveyChartScreen = () => {
                         </Grid>
 
                         <Grid item xs={10} sm={9}>
-                            <FormControl fullWidth>
+                            <FormControl fullWidth  size="small">
                                 <InputLabel id="demo-simple-select-label">Ratio</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
@@ -352,7 +352,7 @@ const HydrographicSurveyChartScreen = () => {
                         </Grid>
 
                         <Grid item xs={10} sm={9}>
-                            <FormControl fullWidth>
+                            <FormControl fullWidth  size="small">
                                 <InputLabel id="demo-simple-select-label">Purpose</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
